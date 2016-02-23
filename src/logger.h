@@ -13,7 +13,7 @@
 #define LOGFILE "logfile.log"
 
 // just log messages with severity >= SEVERITY_THRESHOLD are written
-#define SEVERITY_THRESHOLD logging::trivial::warning
+#define SEVERITY_THRESHOLD logging::trivial::debug
 
 // register a global logger
 BOOST_LOG_GLOBAL_LOGGER(logger, boost::log::sources::severity_logger_mt<

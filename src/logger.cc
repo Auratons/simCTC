@@ -23,7 +23,6 @@ namespace expr = boost::log::expressions;
 namespace sinks = boost::log::sinks;
 namespace attrs = boost::log::attributes;
 
-BOOST_LOG_ATTRIBUTE_KEYWORD(line_id, "LineID", unsigned int)
 BOOST_LOG_ATTRIBUTE_KEYWORD(timestamp, "TimeStamp", boost::posix_time::ptime)
 BOOST_LOG_ATTRIBUTE_KEYWORD(severity, "Severity",
                             logging::trivial::severity_level)
@@ -51,13 +50,11 @@ BOOST_LOG_GLOBAL_LOGGER_INIT(logger, src::severity_logger_mt) {
 
     // specify the format of the log message
     logging::formatter formatter =
-        expr::stream << std::setw(7) << std::setfill('0') << line_id
-                     << std::setfill(' ') << " | "
-                     << expr::format_date_time(timestamp,
-                                               "%Y-%m-%d, %H:%M:%S.%f")
+        expr::stream << expr::format_date_time(timestamp,
+                                               "%Y-%m-%d %H:%M:%S.%f")
                      << " "
-                     << "[" << logging::trivial::severity << "]"
-                     << " - " << expr::smessage;
+                     << "[" << logging::trivial::severity << "] "
+                     << expr::smessage;
     sink->set_formatter(formatter);
 
     // only messages with severity >= SEVERITY_THRESHOLD are written

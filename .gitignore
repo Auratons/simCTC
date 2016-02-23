@@ -29,15 +29,26 @@
 
 # Autotools
 Makefile.in
+Makefile
 aclocal.m4
 autom4te.cache/
 compile
+config.log
 config.guess
 config.h.in
+config.h
+config.status
 config.sub
 configure
 depcomp
 install-sh
 missing
 src/.deps/
+src/.dirstamp
 src/gui/.deps/
+src/gui/.dirstamp
+stamp-h1
+
+# Results
+src/sim
+logfile.log

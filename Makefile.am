@@ -6,6 +6,7 @@ bin_PROGRAMS = src/sim
 
 src_sim_SOURCES = \
 	src/logger.cc \
+	src/app.cc \
 	src/gui/window.cc \
 	src/main.cc
 
